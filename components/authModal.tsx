@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Header, Modal } from 'semantic-ui-react'
 import SigninForm from './signinForm'
 import SignupForm from './signupForm'
-import { signIn, signUp } from '../../utils/api'
+import { signIn, signUp } from '../utils/api'
 
 function AuthModal({ isOpen, onSuccess }: { isOpen: boolean; onSuccess: Function }) {
   const [showSignin, setShowSignin] = useState(true)

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import AuthModal from './components/authModal'
+import Banner from '../components/banner'
+import AuthModal from '../components/authModal'
+import CharactersTable from '../components/charactersTable'
 import { getToken } from '../utils/localstorage'
 
 export default function Home() {
@@ -13,13 +15,13 @@ export default function Home() {
     }
   })
 
-  const handleAuthSuccess = () => {
-    setShowAuth(false)
-  }
-
   return (
     <div>
-      <AuthModal isOpen={showAuth} onSuccess={handleAuthSuccess} />
+      <AuthModal isOpen={showAuth} onSuccess={() => setShowAuth(false)} />
+      <div style={{ display: 'flex', flexDirection: 'column', padding: '10px 0', alignItems: 'center', width: '50%', margin: '0 auto' }}>
+        <Banner />
+        {!showAuth && <CharactersTable />}
+      </div>
     </div>
   )
 }
