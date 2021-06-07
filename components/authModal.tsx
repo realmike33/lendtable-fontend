@@ -17,10 +17,10 @@ function AuthModal({ isOpen, onSuccess }: { isOpen: boolean; onSuccess: Function
     setShowSignin(true)
   }
 
-  const handleSubmit = async (user: { userName: string; password: string }) => {
-    let _error = showSignin ? await signIn(user) : await signUp(user)
-    if (_error) {
-      setError(_error)
+  const handleSubmit = async (userInfo: { userName: string; password: string }) => {
+    const error = showSignin ? await signIn(userInfo) : await signUp(userInfo)
+    if (error) {
+      setError(error)
       return
     }
     onSuccess()

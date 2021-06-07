@@ -33,6 +33,22 @@ export const signUp = async (user: { userName: string; password: string }): Prom
   }
 }
 
+export const getUser = async () => {
+  const token = getToken()
+  try {
+    const data = await fetch(apiUrl + '/me', {
+      method: 'GET',
+      headers: {
+        authorization: token,
+      },
+    }).then((response) => response.json())
+    return data.data
+  } catch (e) {
+    // do someting with error
+    console.log(e)
+  }
+}
+
 export const getAllCharacters = async () => {
   const token = getToken()
   try {

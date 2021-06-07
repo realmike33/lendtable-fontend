@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { Header, Image, Table, Button, Icon } from 'semantic-ui-react'
 import { getAllCharacters, createCharacter } from '../utils/api'
 
-function CharactersTable() {
+function CharactersTable({ user }: { user: { id: string; userName: string } }) {
   const [characters, setAllCharaters] = useState(null)
   const router = useRouter()
 
@@ -70,9 +70,7 @@ function CharactersTable() {
                   <Header.Content>{_character.createdBy.userName}</Header.Content>
                 </Header>
               </Table.Cell>
-              <Table.Cell selectable>
-                <a href={`/characters/${_character._id}`}>Edit</a>
-              </Table.Cell>
+              <Table.Cell selectable>{_character.createdBy._id === user.id && <a href={`/characters/${_character._id}`}>Edit</a>}</Table.Cell>
               <Table.Cell>{_character.str}</Table.Cell>
               <Table.Cell>{_character.dex}</Table.Cell>
               <Table.Cell>{_character.con}</Table.Cell>
