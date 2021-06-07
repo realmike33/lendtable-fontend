@@ -73,7 +73,7 @@ const Character = () => {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        width: '50%',
+        width: '800px',
         margin: '0 auto',
         justifyContent: 'space-evenly',
         minHeight: '800px',
@@ -94,26 +94,42 @@ const Character = () => {
       </div>
       <div>
         <h3>Stats</h3>
-        <p>Strength (STR)</p>
-        <Input defaultValue={character.str} onChange={(e) => handleStateChage('str', e.target.value)} type="number" min="0" max="20" />
-        <p>Dexterity (DEX)</p>
-        <Input defaultValue={character.dex} onChange={(e) => handleStateChage('dex', e.target.value)} type="number" min="0" max="20" />
-        <p>Constitution (CON)</p>
-        <Input defaultValue={character.con} onChange={(e) => handleStateChage('con', e.target.value)} type="number" min="0" max="20" />
-        <p>Intelligence (INT)</p>
-        <Input defaultValue={character.int} onChange={(e) => handleStateChage('int', e.target.value)} type="number" min="0" max="20" />
-        <p>Wisdom (WIS)</p>
-        <Input defaultValue={character.wis} onChange={(e) => handleStateChage('wis', e.target.value)} type="number" min="0" max="20" />
-        <p>Charisma (CHA)</p>
-        <Input defaultValue={character.cha} onChange={(e) => handleStateChage('cha', e.target.value)} type="number" min="0" max="20" />
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <div>
+            <p>Strength (STR)</p>
+            <Input defaultValue={character.str} onChange={(e) => handleStateChage('str', e.target.value)} type="number" min="0" max="20" />
+          </div>
+          <div>
+            <p>Dexterity (DEX)</p>
+            <Input defaultValue={character.dex} onChange={(e) => handleStateChage('dex', e.target.value)} type="number" min="0" max="20" />
+          </div>
+          <div>
+            <p>Constitution (CON)</p>
+            <Input defaultValue={character.con} onChange={(e) => handleStateChage('con', e.target.value)} type="number" min="0" max="20" />
+          </div>
+          <div>
+            <p>Intelligence (INT)</p>
+            <Input defaultValue={character.int} onChange={(e) => handleStateChage('int', e.target.value)} type="number" min="0" max="20" />
+          </div>
+          <div>
+            <p>Wisdom (WIS)</p>
+            <Input defaultValue={character.wis} onChange={(e) => handleStateChage('wis', e.target.value)} type="number" min="0" max="20" />
+          </div>
+          <div>
+            <p>Charisma (CHA)</p>
+            <Input defaultValue={character.cha} onChange={(e) => handleStateChage('cha', e.target.value)} type="number" min="0" max="20" />
+          </div>
+        </div>
       </div>
       <div
         style={{
           display: 'flex',
-          width: '50%',
           justifyContent: 'space-evenly',
         }}
       >
+        <Button basic color="blue" onClick={() => router.push('/')}>
+          Go Back
+        </Button>
         <Button basic color="green" onClick={handleUpdate}>
           <Icon name="save outline" />
           Save
